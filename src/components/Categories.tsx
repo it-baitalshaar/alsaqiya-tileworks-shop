@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import tilesImage from "@/assets/ceramic-tiles.jpg";
 import bathroomImage from "@/assets/ceramic-bathroom.jpg";
 import flooringImage from "@/assets/ceramic-flooring.jpg";
@@ -51,10 +52,8 @@ const Categories = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {categories.map((category) => (
-            <Card 
-              key={category.id} 
-              className="group cursor-pointer hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-card to-card/80"
-            >
+            <Link key={category.id} to={`/product/${category.id}`}>
+              <Card className="group cursor-pointer hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-card to-card/80">
               <CardContent className="p-0">
                 <div className="relative overflow-hidden rounded-t-lg">
                   <img
@@ -93,7 +92,8 @@ const Categories = () => {
                   </div>
                 </div>
               </CardContent>
-            </Card>
+              </Card>
+            </Link>
           ))}
         </div>
       </div>
