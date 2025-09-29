@@ -37,3 +37,34 @@ export function usePost(slug: string) {
     enabled: !!slug
   })
 }
+
+export function useProducts() {
+  return useQuery({
+    queryKey: ['products'],
+    queryFn: async () => {
+      const query = `*[_type == "product"] | order(_createdAt desc){
+        _id,
+        name,
+        mainImage,
+        gallery,
+      }`
+      return client.fetch(query)
+    }
+  })
+}
+
+export function useProduct(productId: string) {
+  return useQuery({
+    queryKey: ['product', productId],
+    queryFn: async () => {
+      const query = `*[_type == "product" && _id == $productId][0]{
+        _id,
+        name,
+        mainImage,
+        gallery,
+      }`
+      return client.fetch(query, { productId })
+    },
+    enabled: !!productId
+  })
+}
