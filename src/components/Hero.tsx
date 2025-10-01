@@ -34,7 +34,9 @@ const Hero = () => {
                 </Button>
               </a>
               <Button variant="outline" size="lg">
-                Download Catalog
+                <a href="" target="_blank">
+                  Download Catalog
+                </a>
               </Button>
             </div>
 

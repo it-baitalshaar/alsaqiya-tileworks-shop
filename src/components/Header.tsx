@@ -25,9 +25,9 @@ const Header = () => {
             <a href="/products" className="text-foreground hover:text-ceramics-terra transition-colors">
               Products
             </a>
-            <a href="#categories" className="text-foreground hover:text-ceramics-terra transition-colors">
+            {/* <a href="#categories" className="text-foreground hover:text-ceramics-terra transition-colors">
               Categories
-            </a>
+            </a> */}
             <a href="#about" className="text-foreground hover:text-ceramics-terra transition-colors">
               About
             </a>
