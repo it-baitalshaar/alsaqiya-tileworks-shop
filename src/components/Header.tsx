@@ -24,7 +24,7 @@ const Header = () => {
             <a href="#home" className="text-foreground hover:text-ceramics-terra transition-colors">
               Home
             </a>
-            <a href="/products" className="text-foreground hover:text-ceramics-terra transition-colors">
+            <a href="#products" className="text-foreground hover:text-ceramics-terra transition-colors">
               Products
             </a>
             {/* <a href="#categories" className="text-foreground hover:text-ceramics-terra transition-colors">
