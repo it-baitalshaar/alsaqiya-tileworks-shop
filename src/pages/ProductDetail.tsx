@@ -11,8 +11,8 @@ import { useProduct } from "@/hooks/useSanity";
 import { urlForImage } from "@/lib/sanity";
 
 const ProductDetail = () => {
-  const { categoryId } = useParams<{ categoryId: string }>();
-  const { data: product, isLoading, error } = useProduct(categoryId || '');
+  const { productId } = useParams<{ productId: string }>();
+  const { data: product, isLoading, error } = useProduct(productId || '');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   // Get all images for the product

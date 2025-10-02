@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Menu, ShoppingCart, User } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -7,7 +8,7 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
             <img 
               src="https://alsaqia-dev-store.leam.ae/_nuxt/img/alsaqia.adb177b.svg" 
               alt="Al Saqiya Logo" 
@@ -17,25 +18,25 @@ const Header = () => {
               <h1 className="text-xl font-bold text-foreground">Al Saqiya</h1>
               <p className="text-xs text-muted-foreground">Premium Ceramics</p>
             </div>
-          </div>
+          </Link>
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#home" className="text-foreground hover:text-ceramics-terra transition-colors">
+            <Link to="/" className="text-foreground hover:text-ceramics-terra transition-colors">
               Home
-            </a>
-            <a href="#products" className="text-foreground hover:text-ceramics-terra transition-colors">
+            </Link>
+            <Link to="/products" className="text-foreground hover:text-ceramics-terra transition-colors">
               Products
-            </a>
-            {/* <a href="#categories" className="text-foreground hover:text-ceramics-terra transition-colors">
+            </Link>
+            {/* <Link to="#categories" className="text-foreground hover:text-ceramics-terra transition-colors">
               Categories
-            </a> */}
-            <a href="#about" className="text-foreground hover:text-ceramics-terra transition-colors">
+            </Link> */}
+            <Link to="/about" className="text-foreground hover:text-ceramics-terra transition-colors">
               About
-            </a>
-            <a href="#contact" className="text-foreground hover:text-ceramics-terra transition-colors">
+            </Link>
+            <Link to="/contact" className="text-foreground hover:text-ceramics-terra transition-colors">
               Contact
-            </a>
+            </Link>
           </nav>
 
           {/* Actions */}
