@@ -43,8 +43,42 @@ const FeaturedProducts = () => {
     );
   }
 
-  if (error || !products || products.length === 0) {
-    return null; // Don't show section if no products
+  if (error) {
+    console.error('FeaturedProducts error:', error);
+    return (
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Featured Products
+            </h2>
+            <p className="text-lg text-red-500">
+              Error loading products: {error.message}
+            </p>
+            <p className="text-sm text-muted-foreground mt-2">
+              Check console for more details
+            </p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (!products || products.length === 0) {
+    return (
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Featured Products
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              No products found. Please check your Sanity configuration.
+            </p>
+          </div>
+        </div>
+      </section>
+    );
   }
 
   return (
