@@ -42,11 +42,13 @@ export function useProducts() {
   return useQuery({
     queryKey: ['products'],
     queryFn: async () => {
-      const query = `*[_type == "product"] | order(_createdAt desc){
+      const query = `*[_type in ["tiles", "mixer"]] | order(_createdAt desc){
         _id,
-        name,
+        _type,
+        // map schemas to UI shape
+        "name": coalesce(title, name),
         mainImage,
-        gallery,
+        "gallery": coalesce(additionalImages, gallery)
       }`
       return client.fetch(query)
     }
@@ -57,14 +59,62 @@ export function useProduct(productId: string) {
   return useQuery({
     queryKey: ['product', productId],
     queryFn: async () => {
-      const query = `*[_type == "product" && _id == $productId][0]{
+      const query = `*[_id == $productId][0]{
         _id,
-        name,
+        _type,
+        "name": coalesce(title, name),
         mainImage,
-        gallery,
+        "gallery": coalesce(additionalImages, gallery)
       }`
       return client.fetch(query, { productId })
     },
     enabled: !!productId
+  })
+}
+
+export function useTiles() {
+  return useQuery({
+    queryKey: ['tiles'],
+    queryFn: async () => {
+      const query = `*[_type == "tiles"] | order(_createdAt desc){
+        _id,
+        _type,
+        "name": coalesce(title, name),
+        mainImage,
+        "gallery": coalesce(additionalImages, gallery),
+        color,
+        size,
+        country,
+        usageArea,
+        material,
+        finish,
+        brand,
+        stockStatus
+      }`
+      return client.fetch(query)
+    }
+  })
+}
+
+export function useMixers() {
+  return useQuery({
+    queryKey: ['mixers'],
+    queryFn: async () => {
+      const query = `*[_type == "mixer"] | order(_createdAt desc){
+        _id,
+        _type,
+        "name": coalesce(title, name),
+        mainImage,
+        "gallery": coalesce(additionalImages, gallery),
+        description,
+        color,
+        material,
+        type,
+        brand,
+        country,
+        stockStatus
+      }`
+      return client.fetch(query)
+    }
   })
 }
