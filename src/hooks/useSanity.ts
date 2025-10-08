@@ -64,7 +64,20 @@ export function useProduct(productId: string) {
         _type,
         "name": coalesce(title, name),
         mainImage,
-        "gallery": coalesce(additionalImages, gallery)
+        "gallery": coalesce(additionalImages, gallery),
+        // common
+        brand,
+        stockStatus,
+        country,
+        color,
+        // tiles
+        size,
+        material,
+        finish,
+        usageArea,
+        // mixer
+        description,
+        type
       }`
       return client.fetch(query, { productId })
     },

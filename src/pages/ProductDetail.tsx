@@ -176,12 +176,17 @@ const ProductDetail = () => {
           {/* Product Info */}
           <div className="space-y-6">
             <div>
-              <Badge variant="secondary" className="mb-2">
-                Ceramic Product
-              </Badge>
+              {product._type && (
+                <Badge variant="secondary" className="mb-2 capitalize">
+                  {product._type}
+                </Badge>
+              )}
               <h1 className="text-3xl font-bold text-foreground mb-4">
                 {product.name}
               </h1>
+              {product.brand && (
+                <p className="text-sm text-muted-foreground">Brand: {product.brand}</p>
+              )}
             </div>
 
             <div className="space-y-2">
@@ -190,10 +195,9 @@ const ProductDetail = () => {
                   Contact for Price
                 </span>
               </div>
-              <p className="text-muted-foreground">
-                Premium ceramic product with exceptional quality and durability. 
-                Contact us for detailed specifications and pricing information.
-              </p>
+              {product.description && (
+                <p className="text-muted-foreground">{product.description}</p>
+              )}
             </div>
 
             <div className="flex gap-4">
@@ -212,10 +216,59 @@ const ProductDetail = () => {
               </Button>
             </div>
 
-            <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
-              <p className="text-sm text-green-700 dark:text-green-300">
-                ✅ Available • Contact us for pricing and availability
-              </p>
+            {product.stockStatus && (
+              <div className={`${product.stockStatus === 'in_stock' ? 'bg-green-50 dark:bg-green-900/20' : product.stockStatus === 'limited_stock' ? 'bg-yellow-50 dark:bg-yellow-900/20' : 'bg-red-50 dark:bg-red-900/20'} p-4 rounded-lg`}>
+                <p className={`text-sm ${product.stockStatus === 'in_stock' ? 'text-green-700 dark:text-green-300' : product.stockStatus === 'limited_stock' ? 'text-yellow-700 dark:text-yellow-300' : 'text-red-700 dark:text-red-300'}`}>
+                  {product.stockStatus === 'in_stock' && '✅ In Stock'}
+                  {product.stockStatus === 'limited_stock' && '⚠️ Limited Stock'}
+                  {product.stockStatus === 'out_of_stock' && '⛔ Out of Stock'}
+                </p>
+              </div>
+            )}
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {product.size && (
+                <div className="text-sm">
+                  <span className="text-muted-foreground">Size: </span>
+                  <span className="text-foreground">{product.size}</span>
+                </div>
+              )}
+              {product.material && (
+                <div className="text-sm">
+                  <span className="text-muted-foreground">Material: </span>
+                  <span className="text-foreground">{product.material}</span>
+                </div>
+              )}
+              {product.finish && (
+                <div className="text-sm">
+                  <span className="text-muted-foreground">Finish: </span>
+                  <span className="text-foreground">{product.finish}</span>
+                </div>
+              )}
+              {product.color && (
+                <div className="text-sm">
+                  <span className="text-muted-foreground">Color: </span>
+                  <span className="text-foreground">{product.color}</span>
+                </div>
+              )}
+              {product.country && (
+                <div className="text-sm">
+                  <span className="text-muted-foreground">Country: </span>
+                  <span className="text-foreground">{product.country}</span>
+                </div>
+              )}
+              {product.type && (
+                <div className="text-sm">
+                  <span className="text-muted-foreground">Type: </span>
+                  <span className="text-foreground capitalize">{String(product.type).replace('_', ' ')}</span>
+                </div>
+              )}
+              {product.usageArea && Array.isArray(product.usageArea) && product.usageArea.length > 0 && (
+                <div className="text-sm">
+                  <span className="text-muted-foreground">Usage Area: </span>
+                  <span className="text-foreground capitalize">{product.usageArea.join(', ')}</span>
+                </div>
+              )}
             </div>
           </div>
         </div>
