@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Star } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-ceramics.jpg";
 
 const Hero = () => {
@@ -27,14 +28,14 @@ const Hero = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="/products">
+              <Link to="/products">
                 <Button variant="hero" size="lg" className="group">
                   Explore Products
                   <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
-              </a>
+              </Link>
               <Button variant="outline" size="lg">
-                <a href="" target="_blank">
+                <a href="/catalog.pdf" target="_blank" rel="noopener noreferrer">
                   Download Catalog
                 </a>
               </Button>
