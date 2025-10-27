@@ -87,7 +87,7 @@ const Contact = () => {
                   className="inline-flex items-center justify-center px-6 py-3 bg-white/10 border border-white/30 text-white rounded-lg hover:bg-white hover:text-ceramics-terra transition-colors"
                 >
                   <Phone className="w-5 h-5 mr-2" />
-                  Call Now: +971 4 123 4567
+                  Call Now: +971 58 196 52 42
                 </a>
                 <button 
                   onClick={handleWhatsAppClick}
