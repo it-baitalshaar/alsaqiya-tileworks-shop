@@ -12,8 +12,8 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Call Us",
-    details: "+971 4 123 4567",
-    secondary: "Mon - Sat 8 AM - 6 PM"
+    details: "+971 58 196 52 42",
+    secondary: "Mon - Sat 7 AM - 6 PM"
   },
   {
     icon: Mail,
