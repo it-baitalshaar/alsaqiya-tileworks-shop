@@ -1,6 +1,6 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { ArrowLeft, Star, ShoppingCart, Heart, Share2, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft, Star, ShoppingCart, Share2, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -9,11 +9,78 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useProduct } from "@/hooks/useSanity";
 import { urlForImage } from "@/lib/sanity";
+import { shareProduct, generateProductShareData } from "@/lib/shareUtils";
 
 const ProductDetail = () => {
   const { productId } = useParams<{ productId: string }>();
   const { data: product, isLoading, error } = useProduct(productId || '');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const navigate = useNavigate();
+
+  const handleShare = async () => {
+    if (product) {
+      const shareData = generateProductShareData(product);
+      await shareProduct(shareData);
+    }
+  };
+
+  // Determine back URL based on product type
+  const getBackUrl = () => {
+    if (!product) return '/products';
+    
+    if (product._type === 'tiles') {
+      return '/products/tiles';
+    } else if (product._type === 'mixer') {
+      return '/products/mixers';
+    }
+    
+    return '/products';
+  };
+
+  const handleBack = () => {
+    navigate(getBackUrl());
+  };
+
+  // WhatsApp helper function
+  const generateWhatsAppMessage = (includeImage: boolean = false) => {
+    if (!product) return '';
+
+    // Build product details
+    let details = `*Product Inquiry*\n\n`;
+    details += `*Product Name:* ${product.name}\n`;
+    
+    if (product.brand) details += `*Brand:* ${product.brand}\n`;
+    if (product.color) details += `*Color:* ${product.color}\n`;
+    if (product.size) details += `*Size:* ${product.size}\n`;
+    if (product.material) details += `*Material:* ${product.material}\n`;
+    if (product.finish) details += `*Finish:* ${product.finish}\n`;
+    if (product.type) details += `*Type:* ${String(product.type).replace('_', ' ')}\n`;
+    
+    // Add product link with proper formatting for WhatsApp to make it clickable
+    const productUrl = window.location.href;
+    details += `\n*Product Link:*\n${productUrl}\n`;
+    
+    details += `\nHello! I'm interested in this product. Could you please provide me with more information?`;
+
+    // Encode message for WhatsApp
+    const encodedMessage = encodeURIComponent(details);
+    
+    // WhatsApp Business API link (replace +971501234567 with your actual WhatsApp number)
+    const whatsappNumber = '+971581965242'; // Change this to your actual WhatsApp number
+    
+    if (includeImage && product.mainImage) {
+      // Try to include image - but this may not work in all cases
+      const imageUrl = urlForImage(product.mainImage);
+      return `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}?text=${encodedMessage}`;
+    }
+    
+    return `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}?text=${encodedMessage}`;
+  };
+
+  const handleWhatsAppContact = (includeImage: boolean = false) => {
+    const whatsappUrl = generateWhatsAppMessage(includeImage);
+    window.open(whatsappUrl, '_blank');
+  };
 
   // Get all images for the product
   const getAllImages = () => {
@@ -100,10 +167,13 @@ const ProductDetail = () => {
       <Header />
       
       <main className="container mx-auto px-4 py-8">
-        <Link to="/products" className="inline-flex items-center text-muted-foreground hover:text-foreground mb-8 transition-colors">
+        <button
+          onClick={handleBack}
+          className="inline-flex items-center text-muted-foreground hover:text-foreground mb-8 transition-colors"
+        >
           <ArrowLeft className="mr-2 h-4 w-4" />
-          Back to Products
-      </Link>
+          {product ? `Back to ${product._type === 'tiles' ? 'Tiles' : product._type === 'mixer' ? 'Mixers' : 'Products'}` : 'Back to Products'}
+        </button>
       
         <div className="grid lg:grid-cols-2 gap-12 mb-12">
           {/* Product Images */}
@@ -204,14 +274,16 @@ const ProductDetail = () => {
               <Button 
                 size="lg" 
                 className="flex-1"
+                onClick={() => handleWhatsAppContact(true)}
               >
                 <ShoppingCart className="mr-2 h-5 w-5" />
                 Contact for Quote
               </Button>
-              <Button variant="outline" size="lg">
-                <Heart className="h-5 w-5" />
-              </Button>
-              <Button variant="outline" size="lg">
+              <Button 
+                variant="outline" 
+                size="lg"
+                onClick={handleShare}
+              >
                 <Share2 className="h-5 w-5" />
               </Button>
             </div>
@@ -284,10 +356,10 @@ const ProductDetail = () => {
               please contact our sales team.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="hero" size="lg">
+              <Button variant="hero" size="lg" onClick={() => handleWhatsAppContact(true)}>
                 Contact Sales Team
               </Button>
-              <Button variant="outline" size="lg">
+              <Button variant="outline" size="lg" onClick={() => handleWhatsAppContact(true)}>
                 Request Quote
               </Button>
             </div>

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { useMixers } from "@/hooks/useSanity";
 import { urlForImage } from "@/lib/sanity";
 import { Link } from "react-router-dom";
+import ProductCard from "@/components/ProductCard";
 
 const MixersPage = () => {
   const { data: mixers, isLoading, error } = useMixers();
@@ -47,37 +48,7 @@ const MixersPage = () => {
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {mixers.map((item) => (
-                <Card key={item._id} className="group hover:shadow-xl transition-all">
-                  <CardContent className="p-0">
-                    <div className="relative overflow-hidden rounded-t-lg">
-                      <Link to={`/product/${item._id}`}>
-                        {item.mainImage ? (
-                          <img
-                            src={urlForImage(item.mainImage)}
-                            alt={item.name}
-                            className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                          />
-                        ) : (
-                          <div className="w-full h-64 bg-muted flex items-center justify-center">
-                            <span className="text-muted-foreground">No Image</span>
-                          </div>
-                        )}
-                        <div className="absolute top-4 left-4">
-                          <Badge variant="secondary" className="bg-white/90 text-foreground">Mixer</Badge>
-                        </div>
-                      </Link>
-                    </div>
-                    <div className="p-6">
-                      <h3 className="text-lg font-semibold">{item.name}</h3>
-                      <p className="text-sm text-muted-foreground">{item.type || item.material || item.brand}</p>
-                      <div className="mt-4">
-                        <Link to={`/product/${item._id}`}>
-                          <Button size="sm">View Details</Button>
-                        </Link>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                <ProductCard key={item._id} product={item} />
               ))}
             </div>
           )}

@@ -28,15 +28,15 @@ const Footer = () => {
               competitive prices, and exceptional service since 2003.
             </p>
             <div className="flex space-x-4">
-              <div className="w-8 h-8 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-ceramics-terra cursor-pointer transition-colors">
+              {/* <div className="w-8 h-8 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-ceramics-terra cursor-pointer transition-colors">
                 <Facebook className="h-4 w-4" />
-              </div>
+              </div> */}
               <div className="w-8 h-8 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-ceramics-terra cursor-pointer transition-colors">
                 <Instagram className="h-4 w-4" />
               </div>
-              <div className="w-8 h-8 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-ceramics-terra cursor-pointer transition-colors">
+              {/* <div className="w-8 h-8 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-ceramics-terra cursor-pointer transition-colors">
                 <Linkedin className="h-4 w-4" />
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -71,22 +71,22 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="h-4 w-4 text-ceramics-terra mt-1 flex-shrink-0" />
                 <div>
-                  <p className="text-primary-foreground/80">123 Business District</p>
-                  <p className="text-primary-foreground/80">Dubai, UAE</p>
+                  <p className="text-primary-foreground/80">Musaffah - Musaffah Industrial - Abu Dhabi</p>
+                  <p className="text-primary-foreground/80">Abu Dhabi, UAE</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 text-ceramics-terra flex-shrink-0" />
-                <p className="text-primary-foreground/80">+971 4 123 4567</p>
+                <p className="text-primary-foreground/80">+971 58 196 52 42</p>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 text-ceramics-terra flex-shrink-0" />
                 <p className="text-primary-foreground/80">info@alsaqiyatrading.com</p>
               </div>
             </div>
-            <Badge variant="secondary" className="bg-ceramics-terra/20 text-ceramics-terra border-ceramics-terra/30">
-              Open Mon-Sat 8AM-6PM
-            </Badge>
+            {/* <Badge variant="secondary" className="bg-ceramics-terra/20 text-ceramics-terra border-ceramics-terra/30">
+              Open Mon-Sat AM-6PM
+            </Badge> */}
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query'
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { client } from '../lib/sanity'
 
 export function usePosts() {
@@ -65,23 +65,22 @@ export function useProduct(productId: string) {
         "name": coalesce(title, name),
         mainImage,
         "gallery": coalesce(additionalImages, gallery),
-        // common
         brand,
         stockStatus,
         country,
         color,
-        // tiles
         size,
         material,
         finish,
         usageArea,
-        // mixer
         description,
-        type
+        type,
+        likes
       }`
       return client.fetch(query, { productId })
     },
-    enabled: !!productId
+    enabled: !!productId,
+    refetchInterval: 5000 // Refetch likes every 5 seconds for real-time updates
   })
 }
 
@@ -102,10 +101,12 @@ export function useTiles() {
         material,
         finish,
         brand,
-        stockStatus
+        stockStatus,
+        likes
       }`
       return client.fetch(query)
-    }
+    },
+    refetchInterval: 5000
   })
 }
 
@@ -125,9 +126,40 @@ export function useMixers() {
         type,
         brand,
         country,
-        stockStatus
+        stockStatus,
+        likes
       }`
       return client.fetch(query)
+    },
+    refetchInterval: 5000
+  })
+}
+
+// New hook for liking products
+export function useLikeProduct() {
+  const queryClient = useQueryClient()
+
+  return useMutation({
+    mutationFn: async ({ productId, action }: { productId: string; action: 'increment' | 'decrement' }) => {
+      const product = await client.fetch(`*[_id == $id][0].likes`, { id: productId })
+      const currentLikes = product || 0
+      const newLikes = action === 'increment' 
+        ? currentLikes + 1 
+        : Math.max(0, currentLikes - 1)
+
+      return client
+        .patch(productId)
+        .set({ likes: newLikes })
+        .commit()
+    },
+    onSuccess: (_, variables) => {
+      // Invalidate and refetch product queries
+      queryClient.invalidateQueries({ queryKey: ['product', variables.productId] })
+      queryClient.invalidateQueries({ queryKey: ['tiles'] })
+      queryClient.invalidateQueries({ queryKey: ['mixers'] })
+    },
+    onError: (error) => {
+      console.error('Error updating likes:', error)
     }
   })
 }
