@@ -2,6 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Award, Globe, Shield, Users } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const features = [
   {
@@ -70,9 +71,11 @@ const About = () => {
               </div>
             </div>
 
-            <Button variant="hero" size="lg">
-              Learn More About Us
-            </Button>
+            <Link to="/about">
+              <Button variant="hero" size="lg">
+                Learn More About Us
+              </Button>
+            </Link>
           </div>
 
           {/* Stats Cards */}

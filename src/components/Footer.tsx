@@ -81,7 +81,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 text-ceramics-terra flex-shrink-0" />
-                <p className="text-primary-foreground/80">info@alsaqiyatrading.com</p>
+                <p className="text-primary-foreground/80">tawasul@alsaqiauae.ae</p>
               </div>
             </div>
             {/* <Badge variant="secondary" className="bg-ceramics-terra/20 text-ceramics-terra border-ceramics-terra/30">

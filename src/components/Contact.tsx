@@ -18,7 +18,7 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email Us",
-    details: "info@alsaqiyatrading.com",
+    details: "tawasul@alsaqiauae.ae",
     secondary: "We reply within 24 hours"
   },
   {
