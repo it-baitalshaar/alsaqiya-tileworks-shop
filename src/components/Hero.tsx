@@ -34,11 +34,11 @@ const Hero = () => {
                   <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
-              <Button variant="outline" size="lg">
-                <a href="/catalog.pdf" target="_blank" rel="noopener noreferrer">
+              {/* <Button variant="outline" size="lg">
+                <a href="/" target="_blank" rel="noopener noreferrer">
                   Download Catalog
                 </a>
-              </Button>
+              </Button> */}
             </div>
 
             {/* Stats */}
