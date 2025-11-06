@@ -75,6 +75,7 @@ export function useProduct(productId: string) {
         usageArea,
         description,
         type,
+        productCode,
         likes
       }`
       return client.fetch(query, { productId })
@@ -102,6 +103,7 @@ export function useTiles() {
         finish,
         brand,
         stockStatus,
+        productCode,
         likes
       }`
       return client.fetch(query)

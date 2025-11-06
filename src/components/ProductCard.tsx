@@ -11,6 +11,7 @@ interface Product {
   brand?: string;
   color?: string;
   size?: string;
+  productCode?: string;
 }
 
 const ProductCard = ({ product }: { product: Product }) => {
@@ -54,6 +55,11 @@ const ProductCard = ({ product }: { product: Product }) => {
 
             <div className="flex items-center justify-between mt-3">
               <div className="flex flex-col gap-1">
+                {product.productCode && (
+                  <span className="text-xs font-medium text-ceramics-terra">
+                    Code: {product.productCode}
+                  </span>
+                )}
                 {product.color && (
                   <span className="text-xs text-muted-foreground">
                     Color: {product.color}

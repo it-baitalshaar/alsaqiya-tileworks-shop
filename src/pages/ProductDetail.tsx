@@ -49,12 +49,18 @@ const ProductDetail = () => {
     let details = `*Product Inquiry*\n\n`;
     details += `*Product Name:* ${product.name}\n`;
     
-    if (product.brand) details += `*Brand:* ${product.brand}\n`;
-    if (product.color) details += `*Color:* ${product.color}\n`;
-    if (product.size) details += `*Size:* ${product.size}\n`;
-    if (product.material) details += `*Material:* ${product.material}\n`;
-    if (product.finish) details += `*Finish:* ${product.finish}\n`;
-    if (product.type) details += `*Type:* ${String(product.type).replace('_', ' ')}\n`;
+    // Make product code prominent - always show it if available
+    if (product.productCode) {
+      details += `\n*📦 Product Code:* ${product.productCode}\n`;
+    }
+    
+    details += `\n*Product Details:*\n`;
+    if (product.brand) details += `• Brand: ${product.brand}\n`;
+    if (product.color) details += `• Color: ${product.color}\n`;
+    if (product.size) details += `• Size: ${product.size}\n`;
+    if (product.material) details += `• Material: ${product.material}\n`;
+    if (product.finish) details += `• Finish: ${product.finish}\n`;
+    if (product.type) details += `• Type: ${String(product.type).replace('_', ' ')}\n`;
     
     // Add product link with proper formatting for WhatsApp to make it clickable
     const productUrl = window.location.href;
@@ -299,6 +305,12 @@ const ProductDetail = () => {
             )}
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {product.productCode && (
+                <div className="text-sm">
+                  <span className="text-muted-foreground">Product Code: </span>
+                  <span className="text-foreground font-medium text-ceramics-terra">{product.productCode}</span>
+                </div>
+              )}
               {product.size && (
                 <div className="text-sm">
                   <span className="text-muted-foreground">Size: </span>
