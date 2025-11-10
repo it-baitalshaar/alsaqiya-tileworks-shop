@@ -74,16 +74,16 @@ const Categories = () => {
                 
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-xl font-semibold text-foreground group-hover:text-ceramics-terra transition-colors">
+                    <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
                       {category.name}
                     </h3>
-                    <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-ceramics-terra group-hover:translate-x-1 transition-all" />
+                    <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
                   </div>
                   <p className="text-muted-foreground mb-4 line-clamp-2">
                     {category.description}
                   </p>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm font-medium text-ceramics-terra">
+                    <span className="text-sm font-medium text-primary">
                       {category.products}
                     </span>
                     <span className="text-sm text-muted-foreground">

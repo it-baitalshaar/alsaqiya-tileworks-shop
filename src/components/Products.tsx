@@ -134,7 +134,7 @@ const Products = () => {
                 <div className="p-6">
                   <div className="space-y-3">
                     <div>
-                      <h3 className="text-lg font-semibold text-foreground group-hover:text-ceramics-terra transition-colors line-clamp-2">
+                      <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
                         {product.name}
                       </h3>
                       <p className="text-sm text-muted-foreground mt-1">
@@ -144,7 +144,7 @@ const Products = () => {
 
                     {/* Price */}
                     <div className="flex items-center space-x-2">
-                      <span className="text-xl font-bold text-ceramics-terra">
+                      <span className="text-xl font-bold text-primary">
                         Contact for Price
                       </span>
                     </div>

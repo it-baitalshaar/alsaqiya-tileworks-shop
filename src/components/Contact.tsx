@@ -60,8 +60,8 @@ const Contact = () => {
               <Card key={index} className="bg-card border-border hover:shadow-md transition-shadow h-full">
                 <CardContent className="p-6 h-full">
                   <div className="flex flex-col items-center text-center space-y-4 h-full">
-                    <div className="flex-shrink-0 w-16 h-16 bg-ceramics-terra/10 rounded-lg flex items-center justify-center">
-                      <info.icon className="h-8 w-8 text-ceramics-terra" />
+                    <div className="flex-shrink-0 w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center">
+                      <info.icon className="h-8 w-8 text-primary" />
                     </div>
                     <div className="flex-1 flex flex-col justify-center">
                       <h3 className="font-semibold text-foreground mb-2 text-lg">{info.title}</h3>
@@ -75,7 +75,7 @@ const Contact = () => {
           </div>
 
           {/* CTA Card */}
-          <Card className="bg-gradient-to-br from-ceramics-terra to-ceramics-earth text-white">
+          <Card className="bg-gradient-to-br from-primary to-primary/80 text-white">
             <CardContent className="p-8 text-center">
               <h3 className="font-bold text-2xl mb-4">Need Immediate Assistance?</h3>
               <p className="text-lg opacity-90 mb-6">
@@ -84,7 +84,7 @@ const Contact = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a 
                   href="tel:+97141234567"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-white/10 border border-white/30 text-white rounded-lg hover:bg-white hover:text-ceramics-terra transition-colors"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-white/10 border border-white/30 text-white rounded-lg hover:bg-white hover:text-primary transition-colors"
                 >
                   <Phone className="w-5 h-5 mr-2" />
                   Call Now: +971 58 196 52 42

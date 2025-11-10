@@ -23,7 +23,7 @@ const FeaturedProducts = () => {
         <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
           <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-card to-card/80">
             <CardContent className="p-6 flex flex-col items-center text-center">
-              <Grid3X3 className="w-12 h-12 mb-4 text-ceramics-terra" />
+              <Grid3X3 className="w-12 h-12 mb-4 text-primary" />
               <h3 className="text-xl font-semibold mb-2">Tiles</h3>
               <p className="text-sm text-muted-foreground mb-6">Wall and floor tiles in various sizes and finishes.</p>
               <Link to="/products/tiles">
@@ -35,7 +35,7 @@ const FeaturedProducts = () => {
           </Card>
           <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-card to-card/80">
             <CardContent className="p-6 flex flex-col items-center text-center">
-              <Wrench className="w-12 h-12 mb-4 text-ceramics-terra" />
+              <Wrench className="w-12 h-12 mb-4 text-primary" />
               <h3 className="text-xl font-semibold mb-2">Mixers</h3>
               <p className="text-sm text-muted-foreground mb-6">Kitchen, bathroom, shower, and basin mixers.</p>
               <Link to="/products/mixers">

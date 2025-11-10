@@ -31,7 +31,7 @@ const Footer = () => {
               {/* <div className="w-8 h-8 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-ceramics-terra cursor-pointer transition-colors">
                 <Facebook className="h-4 w-4" />
               </div> */}
-              <div className="w-8 h-8 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-ceramics-terra cursor-pointer transition-colors">
+              <div className="w-8 h-8 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-white/20 cursor-pointer transition-colors">
                 <Instagram className="h-4 w-4" />
               </div>
               {/* <div className="w-8 h-8 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-ceramics-terra cursor-pointer transition-colors">
@@ -44,11 +44,11 @@ const Footer = () => {
           <div className="space-y-6">
             <h4 className="text-lg font-semibold">Quick Links</h4>
             <ul className="space-y-3 text-sm">
-              <li><a href="#home" className="text-primary-foreground/80 hover:text-ceramics-terra transition-colors">Home</a></li>
-              <li><a href="#products" className="text-primary-foreground/80 hover:text-ceramics-terra transition-colors">Products</a></li>
-              <li><a href="#categories" className="text-primary-foreground/80 hover:text-ceramics-terra transition-colors">Categories</a></li>
-              <li><a href="#about" className="text-primary-foreground/80 hover:text-ceramics-terra transition-colors">About Us</a></li>
-              <li><a href="#contact" className="text-primary-foreground/80 hover:text-ceramics-terra transition-colors">Contact</a></li>
+              <li><a href="#home" className="text-primary-foreground/80 hover:text-white transition-colors">Home</a></li>
+              <li><a href="#products" className="text-primary-foreground/80 hover:text-white transition-colors">Products</a></li>
+              <li><a href="#categories" className="text-primary-foreground/80 hover:text-white transition-colors">Categories</a></li>
+              <li><a href="#about" className="text-primary-foreground/80 hover:text-white transition-colors">About Us</a></li>
+              <li><a href="#contact" className="text-primary-foreground/80 hover:text-white transition-colors">Contact</a></li>
             </ul>
           </div>
 
@@ -56,11 +56,11 @@ const Footer = () => {
           <div className="space-y-6">
             <h4 className="text-lg font-semibold">Product Categories</h4>
             <ul className="space-y-3 text-sm">
-              <li><a href="#" className="text-primary-foreground/80 hover:text-ceramics-terra transition-colors">Wall & Floor Tiles</a></li>
-              <li><a href="#" className="text-primary-foreground/80 hover:text-ceramics-terra transition-colors">Bathroom Ceramics</a></li>
-              <li><a href="#" className="text-primary-foreground/80 hover:text-ceramics-terra transition-colors">Commercial Flooring</a></li>
-              <li><a href="#" className="text-primary-foreground/80 hover:text-ceramics-terra transition-colors">Outdoor Ceramics</a></li>
-              <li><a href="#" className="text-primary-foreground/80 hover:text-ceramics-terra transition-colors">Specialty Products</a></li>
+              <li><a href="#" className="text-primary-foreground/80 hover:text-white transition-colors">Wall & Floor Tiles</a></li>
+              <li><a href="#" className="text-primary-foreground/80 hover:text-white transition-colors">Bathroom Ceramics</a></li>
+              <li><a href="#" className="text-primary-foreground/80 hover:text-white transition-colors">Commercial Flooring</a></li>
+              <li><a href="#" className="text-primary-foreground/80 hover:text-white transition-colors">Outdoor Ceramics</a></li>
+              <li><a href="#" className="text-primary-foreground/80 hover:text-white transition-colors">Specialty Products</a></li>
             </ul>
           </div>
 
@@ -69,18 +69,18 @@ const Footer = () => {
             <h4 className="text-lg font-semibold">Contact Information</h4>
             <div className="space-y-4 text-sm">
               <div className="flex items-start space-x-3">
-                <MapPin className="h-4 w-4 text-ceramics-terra mt-1 flex-shrink-0" />
+                <MapPin className="h-4 w-4 text-white mt-1 flex-shrink-0" />
                 <div>
                   <p className="text-primary-foreground/80">Musaffah - Musaffah Industrial - Abu Dhabi</p>
                   <p className="text-primary-foreground/80">Abu Dhabi, UAE</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
-                <Phone className="h-4 w-4 text-ceramics-terra flex-shrink-0" />
+                <Phone className="h-4 w-4 text-white flex-shrink-0" />
                 <p className="text-primary-foreground/80">+971 58 196 52 42</p>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail className="h-4 w-4 text-ceramics-terra flex-shrink-0" />
+                <Mail className="h-4 w-4 text-white flex-shrink-0" />
                 <p className="text-primary-foreground/80">tawasul@alsaqiauae.ae</p>
               </div>
             </div>
@@ -99,13 +99,13 @@ const Footer = () => {
             © 2024 Al Saqiya Trading. All rights reserved.
           </p>
           <div className="flex space-x-6 text-sm">
-            <a href="#" className="text-primary-foreground/60 hover:text-ceramics-terra transition-colors">
+            <a href="#" className="text-primary-foreground/60 hover:text-white transition-colors">
               Privacy Policy
             </a>
-            <a href="#" className="text-primary-foreground/60 hover:text-ceramics-terra transition-colors">
+            <a href="#" className="text-primary-foreground/60 hover:text-white transition-colors">
               Terms of Service
             </a>
-            <a href="#" className="text-primary-foreground/60 hover:text-ceramics-terra transition-colors">
+            <a href="#" className="text-primary-foreground/60 hover:text-white transition-colors">
               Sitemap
             </a>
           </div>

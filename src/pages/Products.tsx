@@ -18,7 +18,7 @@ const ProductsPage = () => {
           <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
             <Card className="group hover:shadow-xl transition-all">
               <CardContent className="p-6 flex flex-col items-center text-center">
-                <Grid3X3 className="w-12 h-12 mb-4 text-ceramics-terra" />
+                <Grid3X3 className="w-12 h-12 mb-4 text-primary" />
                 <h2 className="text-xl font-semibold mb-2">Tiles</h2>
                 <p className="text-sm text-muted-foreground mb-6">Wall and floor tiles in various sizes and finishes.</p>
                 <Link to="/products/tiles">
@@ -28,7 +28,7 @@ const ProductsPage = () => {
             </Card>
             <Card className="group hover:shadow-xl transition-all">
               <CardContent className="p-6 flex flex-col items-center text-center">
-                <Wrench className="w-12 h-12 mb-4 text-ceramics-terra" />
+                <Wrench className="w-12 h-12 mb-4 text-primary" />
                 <h2 className="text-xl font-semibold mb-2">Mixers</h2>
                 <p className="text-sm text-muted-foreground mb-6">Kitchen, bathroom, shower, and basin mixers.</p>
                 <Link to="/products/mixers">

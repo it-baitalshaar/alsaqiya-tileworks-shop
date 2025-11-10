@@ -234,7 +234,7 @@ const ProductDetail = () => {
                     onClick={() => setCurrentImageIndex(index)}
                     className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-colors ${
                       index === currentImageIndex 
-                        ? 'border-ceramics-terra' 
+                        ? 'border-primary' 
                         : 'border-transparent hover:border-muted-foreground'
                     }`}
                   >
@@ -267,7 +267,7 @@ const ProductDetail = () => {
 
             <div className="space-y-2">
               <div className="flex items-center gap-4">
-                <span className="text-3xl font-bold text-ceramics-terra">
+                <span className="text-3xl font-bold text-primary">
                   Contact for Price
                 </span>
               </div>
@@ -308,7 +308,7 @@ const ProductDetail = () => {
               {product.productCode && (
                 <div className="text-sm">
                   <span className="text-muted-foreground">Product Code: </span>
-                  <span className="text-foreground font-medium text-ceramics-terra">{product.productCode}</span>
+                  <span className="text-foreground font-medium text-primary">{product.productCode}</span>
                 </div>
               )}
               {product.size && (

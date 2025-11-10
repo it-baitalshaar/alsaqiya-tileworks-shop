@@ -40,7 +40,7 @@ const About = () => {
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground">
                 Your Trusted Partner in 
-                <span className="text-ceramics-terra"> Premium Ceramics</span>
+                <span className="text-primary"> Premium Ceramics</span>
               </h2>
               <p className="text-lg text-muted-foreground">
                 Since our establishment, Al Saqiya Trading has been at the forefront of ceramic 
@@ -59,8 +59,8 @@ const About = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {features.map((feature, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <div className="flex-shrink-0 w-10 h-10 bg-ceramics-terra/10 rounded-lg flex items-center justify-center">
-                      <feature.icon className="h-5 w-5 text-ceramics-terra" />
+                    <div className="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                      <feature.icon className="h-5 w-5 text-primary" />
                     </div>
                     <div>
                       <h4 className="font-medium text-foreground">{feature.title}</h4>
@@ -80,14 +80,14 @@ const About = () => {
 
           {/* Stats Cards */}
           <div className="grid grid-cols-2 gap-6">
-            <Card className="bg-gradient-to-br from-ceramics-terra to-ceramics-earth text-white">
+            <Card className="bg-gradient-to-br from-primary to-primary/80 text-white">
               <CardContent className="p-6 text-center">
                 <div className="text-3xl font-bold mb-2">500+</div>
                 <div className="text-sm opacity-90">Product Lines Available</div>
               </CardContent>
             </Card>
             
-            <Card className="bg-gradient-to-br from-ceramics-clay to-ceramics-stone">
+            <Card className="bg-gradient-to-br from-secondary to-secondary/80">
               <CardContent className="p-6 text-center">
                 <div className="text-3xl font-bold mb-2 text-foreground">20+</div>
                 <div className="text-sm text-muted-foreground">Years of Experience</div>
