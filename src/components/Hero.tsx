@@ -11,13 +11,13 @@ const Hero = () => {
           {/* Content */}
           <div className="space-y-8">
             <div className="space-y-4">
-              <div className="flex items-center space-x-2 text-ceramics-terra">
+              <div className="flex items-center space-x-2 text-primary">
                 <Star className="h-5 w-5 fill-current" />
                 <span className="text-sm font-medium">Premium Quality Ceramics</span>
               </div>
               <h1 className="text-4xl md:text-6xl font-bold text-foreground leading-tight">
                 Transform Your Space with
-                <span className="bg-gradient-to-r from-ceramics-terra to-ceramics-earth bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                   {" "}Premium Ceramics
                 </span>
               </h1>
@@ -60,7 +60,7 @@ const Hero = () => {
 
           {/* Image */}
           <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-tr from-ceramics-terra/20 to-transparent rounded-3xl"></div>
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-3xl"></div>
             <img
               src={heroImage}
               alt="Premium ceramics showroom"
@@ -68,7 +68,7 @@ const Hero = () => {
             />
             <div className="absolute -bottom-6 -right-6 bg-card p-6 rounded-2xl shadow-lg border border-border">
               <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-ceramics-terra to-ceramics-earth rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
                   <Star className="h-6 w-6 text-white fill-current" />
                 </div>
                 <div>
