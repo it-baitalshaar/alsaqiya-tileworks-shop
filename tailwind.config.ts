@@ -52,6 +52,7 @@ export default {
           clay: "hsl(var(--ceramics-clay))",
           stone: "hsl(var(--ceramics-stone))",
           earth: "hsl(var(--ceramics-earth))",
+          blue: "hsl(var(--ceramics-blue))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
